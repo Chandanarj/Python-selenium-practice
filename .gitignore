@@ -4,3 +4,8 @@ __pycache__
 rest-api/__pycache__
 selenium-pytest/__pycache__
 selenium-tests/__pycache__
+*.html
+*.xml
+*.xlsx
+*.xls
+assets/
