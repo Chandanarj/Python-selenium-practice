@@ -1,12 +1,15 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.color import Color
+from pytest_testrail.plugin import testrail, pytestrail
 
-class TestSeleniumDemo():
+
+class TestSeleniumDemo:
 
     def test_demo(self):
         pass
 
+    @pytestrail.case('C2432')
     def test_selenium_multi_choice(self):
         options = webdriver.ChromeOptions()
         options.add_experimental_option("detach", True)
@@ -25,6 +28,7 @@ class TestSeleniumDemo():
         hex_color = Color.from_string(color).hex
         print(hex_background_color)
         print(hex_color)
+        driver.quit()
 
 
     

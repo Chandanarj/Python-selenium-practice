@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from pytest_testrail.plugin import testrail, pytestrail
+
 
 @pytest.fixture
 def set_up():
@@ -9,12 +11,14 @@ def set_up():
     global driver
     driver = webdriver.Chrome(options=options)
     driver.get("https://google.com")
-    driver.implicitly_wait(10) 
+    driver.implicitly_wait(10)
     yield
     driver.quit()
 
+
 @pytest.mark.smoke
 @pytest.mark.regression
+@pytestrail.case('C2433')
 @pytest.mark.parametrize("SearchText", ["Testing1", "Testing2"])
 def test_One(set_up, SearchText):
     assert driver.title == "Google"
