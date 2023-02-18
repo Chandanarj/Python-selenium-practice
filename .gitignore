@@ -9,3 +9,4 @@ selenium-tests/__pycache__
 *.xlsx
 *.xls
 assets/
+.idea
