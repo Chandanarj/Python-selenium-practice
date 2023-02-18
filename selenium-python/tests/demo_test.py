@@ -1,12 +1,13 @@
 import pytest
 from base_test import BaseTest
 from selenium.webdriver.common.by import By
+from pytest_testrail.plugin import testrail, pytestrail
 
 
 class TestSelenium_Demo(BaseTest):
 
-    @pytest.mark.parametrize("search,exectedTitle", [("Testing1", "Testing1 - Google Search"),
-                                                     ("Testing2", "Testing2 - Google Search")])
+    @pytestrail.case('C2516')
+    @pytest.mark.parametrize("search,exectedTitle", [("Testing1", "Testing - Google Search")])
     def test_one(self, search, exectedTitle):
         self.driver.get("https://google.com")
         assert self.driver.title == "Google"
@@ -14,7 +15,7 @@ class TestSelenium_Demo(BaseTest):
         self.driver.find_element(By.XPATH, '(//*[@value="Google Search"])[2]').click()
         assert self.driver.title == exectedTitle
 
-
+    @pytestrail.case('C2517')
     def test_second(self):
         self.driver.get("https://facebook.com/")
 

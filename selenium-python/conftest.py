@@ -10,7 +10,7 @@ def set_up(request):
     options.add_experimental_option("detach", True)
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(10)
-    driver = EventFiringWebDriver(driver, MyListner())
+    #driver = EventFiringWebDriver(driver, MyListner())
     request.cls.driver = driver
     yield
     driver.quit()
