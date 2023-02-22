@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from pytest_testrail.plugin import testrail, pytestrail
 
 
-class TestSelenium_Demo(BaseTest):
+class Selenium_Demo(BaseTest):
 
     @pytestrail.case('C2516')
     @pytest.mark.parametrize("search,exectedTitle", [("Testing1", "Testing - Google Search")])
