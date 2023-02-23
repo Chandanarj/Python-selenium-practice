@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
+
+from base_page import BasePage
 from page_locators.user_locator import UserManagementLocator
 
 
-class UserManagementPage():
+class UserManagementPage(BasePage):
 
     def __init__(self, driver):
         self.userManagementLocator = UserManagementLocator()
