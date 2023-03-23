@@ -6,7 +6,7 @@ class UserManagementLocator():
     add_user_button = (By.CSS_SELECTOR, '[class="oxd-icon bi-plus oxd-button-icon"]')
     role_drop_down = (By.XPATH, '//div[div[label[text()="User Role"]]]//div[@class="oxd-select-text-input"]')
     employ_drop_down = (By.XPATH, '//div[div[label[text()="Employee Name"]]]//input')
-    status_drop_down = (By.XPATH, '//div[div[label[text()="Status"]]]/div[2]/div/div')
+    status_drop_down = (By.XPATH, '//div[div[label[text()="Status"]]]/div[2]/div/div/div')
     status_dropdown_value = (By.XPATH, '//*[@class="oxd-select-option"]/span[text()="Enabled"]')
     user_name_input = (By.XPATH, '//div[div[label[text()="Username"]]]//input')
     password_input = (By.XPATH, '//div[div[label[text()="Password"]]]//input')

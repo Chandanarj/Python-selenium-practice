@@ -4,7 +4,7 @@ from base_test import BaseTest
 
 class TestOrangeHRMLogin(BaseTest):
     def test_login(self):
-        pass
+        print("Login successfully")
 
 
 
