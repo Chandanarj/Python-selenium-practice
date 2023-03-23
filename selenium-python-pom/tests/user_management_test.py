@@ -12,7 +12,7 @@ class TestUserManagement(BaseTest):
         user_management_page = UserManagementPage(self.driver)
         user_management_page.verify_breadcrumb("Admin\nUser Management")
 
-        user_management_page.add_user("Admin", "Paul",
+        user_management_page.add_user("Admin", "Paul Collings",
                                     'Paul Collings', "john.scot2433", "Password123@")
         # Verify user created
         user_management_page.verify_user_created("Success\nSuccessfully Saved")

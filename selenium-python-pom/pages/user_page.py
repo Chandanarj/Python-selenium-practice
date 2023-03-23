@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 
 from base_page import BasePage
@@ -24,12 +26,14 @@ class UserManagementPage(BasePage):
 
         # Employee Name
         self.driver.find_element(*self.userManagementLocator.employ_drop_down).send_keys(emp_name)
+        time.sleep(10)
         self.driver.find_element(By.XPATH,
                                 f"//*[text()='{emp_full_name}']").click()
 
         # Status
         self.driver.find_element().click(*self.userManagementLocator.status_drop_down)
-        self.driver.find_element(*self.userManagementLocator.status_dropdown_value).click()
+        self.wait_and_click(*self.userManagementLocator.status_dropdown_value)
+        #self.driver.find_element(*self.userManagementLocator.status_dropdown_value).click()
 
         # Username
         self.driver.find_element(*self.userManagementLocator.user_name_input).send_keys(user_name)

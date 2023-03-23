@@ -7,16 +7,30 @@ from pages.login_page import LoginPage
 
 
 @pytest.fixture(scope="class")
-def set_up(request):
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option("detach", True)
-    driver = webdriver.Chrome(options=options)
+def set_up(request, browser_type):
+    print("Running on brower : "+browser_type)
+    if browser_type == 'chrome':
+        options = webdriver.ChromeOptions()
+        options.add_experimental_option("detach", True)
+        driver = webdriver.Chrome(options=options)
+    elif browser_type == 'firefox':
+        driver = webdriver.Firefox()
+    elif browser_type == 'edge':
+        driver = webdriver.Edge()
     driver.implicitly_wait(10)
     #driver = EventFiringWebDriver(driver, MyListner())
     request.cls.driver = driver
     yield
     driver.quit()
 
+
+def pytest_addoption(parser):
+    parser.addoption("--browser")
+
+
+@pytest.fixture(scope="class", autouse=True)
+def browser_type(request):
+    return request.config.getoption("--browser")
 
 @pytest.fixture()
 def navigate_url(request):
